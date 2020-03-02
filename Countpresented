@@ -1,0 +1,62 @@
+import java.util.*;
+class Countpresnted{
+public static void main(String args[]){
+String a []={"A","B","B","C","C","C","D","A","p","l"};
+ int y=a.length*2;
+  String b[]=new String[y];
+   String t=" ";
+   //System.out.println()
+   for(int i=0;i<a.length-1;i++)
+   {
+       for(int j=i+1;j<a.length;j++)
+       {
+           if((a[i].compareTo(a[j]))>0){
+               t=a[i];
+               a[i]=a[j];
+               a[j]=t;
+           }
+       }
+   }
+ int j;int i,r=0,r1=0; int s[]=new int[a.length];
+ for(i=0;i<a.length;i++)
+ {
+     int count=1;
+    
+     for(j=i+1;j<a.length;j++)
+     {
+       if(a[i]==a[j])
+     {
+         count++;
+         i=j;
+        
+         
+        
+     }
+         
+     }
+     s[r++]=count;//
+      b[r1++]=a[i];
+     
+     b[r1++]=String.valueOf(count);
+     System.out.println(a[i]+" "+count+" ");
+     }
+     Arrays.sort(s);
+     //System.out.println(s);
+    // System.out.println(s.length);
+     System.out.println();
+     for( i=s.length-1;i>=0;i--)
+     {
+         if(s[i]!=0)
+         for(int q=1;q<=r1;q=q+2)
+         {
+             if(!(b[q].equals("0"))&&((b[q].equals(String.valueOf(s[i])))))
+             {
+                 System.out.println(b[q-1]+" "+b[q]);
+                 b[q]="0";
+                 break;
+             }
+         }
+       
+     }
+     }
+     }
